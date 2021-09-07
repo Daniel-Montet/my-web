@@ -1,17 +1,17 @@
-// import Articles from "../components/articles";
-import Intro from "../components/Intro";
-import Profile from "../components/profile";
-import { getPosts } from "../lib/posts";
+// import Articles from "../components/articles/articles";
+import Intro from "../components/intro/intro";
+// import Profile from "../components/profile/profile";
+// import { getPosts } from "../lib/posts";
 
-export default function Home(posts) {
-  return (
-    <>
-      <Intro />
-      <Profile />
-      {/* <Articles posts={posts.posts} /> */}
-    </>
-  );
-}
+// export default function Home(posts) {
+//   return (
+//     <>
+//       <Intro />
+//       <Profile />
+//       <Articles posts={posts.posts} />
+//     </>
+//   );
+// }
 
 // export async function getStaticProps(context) {
 //   const posts = await getPosts();
@@ -26,3 +26,8 @@ export default function Home(posts) {
 //     props: { posts },
 //   };
 // }
+
+
+export default function Home() {
+  return <Intro />
+}
