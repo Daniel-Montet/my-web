@@ -51,7 +51,7 @@
 }
 
 .img {
-  height: 120%;
+  height: 120vh;
   position: absolute;
   right: 0;
   top: -5rem;
