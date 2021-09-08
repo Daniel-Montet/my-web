@@ -1,8 +1,8 @@
 import styles from "./intro.module.css";
-import Image from 'next/image';
-import PersonOnDeskBlob from "/public/hero-image.svg";
+import HeroImage from "/public/hero-image.svg";
 
 export default function Intro() {
+  console.log(HeroImage)
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
@@ -12,7 +12,7 @@ export default function Intro() {
           <h3>A fullstack developer.</h3>
         </div>
         <div className={styles.svgBox}>
-          <Image src={PersonOnDeskBlob} alt="A drawing of a person sitted on a desk with a computer."/>
+          <img className={styles.img} src={HeroImage.src} alt="" />
         </div>
       </div>
     </div>

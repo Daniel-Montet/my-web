@@ -1,27 +1,26 @@
 .container {
-  /* display: flex;
-  background-color: red; */
   height: 100vh;
-  align-items: center;
-  justify-content: end;
-  padding: 10vh 0 0 0;
+  background: #082032;
 }
 
 .textBox, .svgBox {
   width: 50%;
 }
-
-.inner {
-  max-width: 100vw;
-  max-height: 80vh;
-  height: 75vh;
-  /* width: 80vw; */
-  background-color: green;
-  display: flex;
+.textBox {
+  color: white;
+}
+.svgBox {
+  position: relative;
 }
 
-.nav {
-  background-color: indianred;
-  max-width: 10vw;
-  height: 100vh;
+.inner {
+  display: flex;
+  height: 100%;
+}
+
+.img {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  width: 120%;
 }
