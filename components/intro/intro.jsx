@@ -2,7 +2,6 @@ import styles from "./intro.module.css";
 import HeroImage from "/public/hero-image.svg";
 
 export default function Intro() {
-  console.log(HeroImage);
   return (
     <div className={styles.container}>
       <div className={styles.inner}>

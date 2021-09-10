@@ -51,8 +51,16 @@
 }
 
 .img {
-  height: 120vh;
+  height: 120%;
   position: absolute;
   right: 0;
   top: -5rem;
+  width: 120%;
+}
+
+
+/* Navigation */
+.nav {
+  position: absolute;
+  border: 1px solid #C2CED7;
 }
