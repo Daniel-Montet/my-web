@@ -1,0 +1,38 @@
+.textBox {
+  width: 70%;
+  height: 100%;
+}
+.textBox {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  margin-bottom: 7rem;
+}
+
+.textBox > div {
+  width: 60%;
+  margin: auto;
+  /* height: 100%; */
+}
+.svgBox {
+  width: 30%;
+  height: 100%;
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+.img {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+}
