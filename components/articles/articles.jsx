@@ -6,6 +6,63 @@ export default function Articles({ posts, meta }) {
   let next = meta.pagination.next;
   let prev = meta.pagination.prev;
 
+  if (posts === null) {
+    return (
+      <div className="container">
+        <FallbackPage />
+      </div>
+    );
+  }
+  // console.log(posts);
+  return (
+    <section className="container">
+      <section className={`${styles.inner} flex-row`}>
+        <section className={styles.col7}>
+          <section className={`${styles.colHeader} flex-row`}>
+            <h4 className={styles.h4}>ARTICLES</h4>
+            <div className={styles.hr} />
+          </section>
+          <section className={styles.posts}>
+            <Posts posts={posts} />
+          </section>
+          <PageControls page={page} next={next} prev={prev} />
+        </section>
+        <section className={styles.col3}>
+          <section className={`${styles.colHeader} flex-row`}>
+            <h4 className={styles.h4}>TAGS</h4>
+            <div className={styles.hr} />
+          </section>
+        </section>
+      </section>
+    </section>
+  );
+}
+
+// renders post and a short excerpt
+const Posts = ({ posts }) => {
+  return posts.map((post) => {
+    return (
+      <article className={styles.post} key={post.id}>
+        <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
+          <a href="#" className={styles.h2}>
+            {post.title}
+          </a>
+        </Link>
+        <p className={styles.p}>{post.custom_excerpt}</p>
+        <div className={`flex-row ${styles.meta}`}>
+          <span>{date(post.published_at)}</span>
+          <div className={styles.dashes} />
+          <span>{post.reading_time} MIN</span>
+        </div>
+      </article>
+    );
+  });
+};
+
+const PageControls = ({ prev, next, page }) => {
+  let prevButton;
+  let nextButton;
+
   if (prev) {
     prevButton = <span>prev</span>;
   } else {
@@ -16,54 +73,23 @@ export default function Articles({ posts, meta }) {
   } else {
     nextButton = <span></span>;
   }
-
-  const NoPosts = (
-    <div>
-      <h2>Not Found</h2>
-    </div>
-  );
-
-  if (posts === null) {
-    // console.log("ran it");
-    return <div className="container">{NoPosts}</div>;
-  }
-  // console.log(posts);
   return (
-    <div className="container">
-      <div className={styles.inner}>
-        <div>
-          <h3>Articles</h3> <hr />
-        </div>
-        <Posts posts={posts} />
-        <div>
-          {prev}
-          <hr />
-          <span>Page: {page}</span>
-          <hr />
-          {next}
-        </div>
-      </div>
-    </div>
-  );
-}
+    <div className="flex-row">
+      {prevButton}
 
-// renders post and a short excerpt
-const Posts = ({ posts }) => {
-  return (
-    <div>
-      {posts.map((post) => {
-        return (
-          <div key={post.id}>
-            <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
-              <a>{post.title}</a>
-            </Link>
-            <p>{post.custom_excerpt}</p>
-            <span>{post.published_at}</span>
-            <hr />
-            <span>{post.reading_time}</span>
-          </div>
-        );
-      })}
+      <span>Page: {page}</span>
+
+      {nextButton}
     </div>
   );
 };
+
+const FallbackPage = (message) => (
+  <div>
+    <h2>{message}</h2>
+  </div>
+);
+
+function date(date) {
+  return new Date(date).toDateString().toUpperCase();
+}

@@ -7,15 +7,23 @@ import Me from "../components/me/me";
 let BLOG_URL = process.env.BLOG_URL;
 let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
 
+//object returned from endpoint ---> { meta:{},posts:[] }
 const getPosts = async () => {
-  let data = await fetch(
-    `${BLOG_URL}/ghost/api/v3/content/posts?key=${CONTENT_API_KEY}&page=3&fields=title,custom_excerpt,published_at,reading_time,slug`
-  ).then((res) => res.json());
-
-  return data;
+  let x = await fetch(
+    `${BLOG_URL}/ghost/api/v3/content/posts?key=${CONTENT_API_KEY}&limit=3`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .catch((error) => {
+      return { error };
+    });
+  // console.log(x);
+  return x;
 };
 
 export default function Home({ meta, posts }) {
+  console.log(posts);
   return (
     <>
       <Nav />
@@ -27,9 +35,9 @@ export default function Home({ meta, posts }) {
 }
 
 export async function getStaticProps(context) {
-  const { posts, meta } = await getPosts();
+  const { posts, meta, error } = await getPosts();
 
-  if (!posts) {
+  if (error) {
     return {
       props: { posts: null, meta: null },
     };
@@ -39,3 +47,4 @@ export async function getStaticProps(context) {
     props: { posts, meta },
   };
 }
+//
