@@ -23,7 +23,7 @@ const getPosts = async () => {
 };
 
 export default function Home({ meta, posts }) {
-  console.log(posts);
+  console.log(meta);
   return (
     <>
       <Nav />

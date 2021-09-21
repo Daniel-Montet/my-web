@@ -50,8 +50,11 @@ const Posts = ({ posts }) => {
         </Link>
         <p className={styles.p}>{post.custom_excerpt}</p>
         <div className={`flex-row ${styles.meta}`}>
-          <span>{date(post.published_at)}</span>
-          <div className={styles.dashes} />
+          <span className={styles.time}>{date(post.published_at)}</span>
+          <div className={`${styles.dashes} flex-row`}>
+            <div className={styles.dash} />
+            <div className={styles.dash} />
+          </div>
           <span>{post.reading_time} MIN</span>
         </div>
       </article>

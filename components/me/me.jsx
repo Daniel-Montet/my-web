@@ -7,7 +7,7 @@ export default function Profile(props) {
       <div className={styles.inner}>
         <div className={styles.textBox}>
           <div>
-            <h2>A little bit about myself.</h2>
+            <h2 className={styles.h2}>A little bit about myself.</h2>
             <p>
               Praesent sapien massa, convallis a pellentesque nec, egestas non
               nisi. Nulla porttitor accumsan tincidunt. Nulla quis lorem ut

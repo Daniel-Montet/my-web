@@ -15,6 +15,7 @@
 .colHeader {
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
 .hr {
@@ -34,26 +35,42 @@
 }
 
 .h2 {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
 }
 
 .p {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-family: "Poppins", sans-serif;
   padding: 0;
+  margin: 0.3rem 0 1rem 0;
 }
 
 .meta {
+  font-family: "Poppins", sans-serif;
   align-items: center;
+  font-size: 0.8rem;
 }
 .dashes {
-  height: 00.01rem;
-  width: 1rem;
-  background-color: greenyellow;
+  width: 5%;
+  padding: 0 0.5rem;
+}
+
+.dash {
+  width: 0.5rem;
+  background-color: white;
+  height: 0.01rem;
+  margin: 0 0.1rem;
 }
 
 .post {
   padding-bottom: 2rem;
+}
+
+.time {
+  color: #ffb8b8;
 }
