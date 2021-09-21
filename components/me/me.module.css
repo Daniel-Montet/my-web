@@ -1,0 +1,47 @@
+.textBox {
+  width: 70%;
+  height: 100%;
+}
+.textBox {
+  color: white;
+  display: flex;
+  text-align: justify;
+}
+
+.textBox > div {
+  width: 55%;
+  margin: 10% 0 0 17%;
+}
+
+.textBox p {
+  font-size: 1.05rem;
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+}
+
+.svgBox {
+  width: 30%;
+  height: 100%;
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+.img {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.h2 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.25rem;
+}
