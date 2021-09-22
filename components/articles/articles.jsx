@@ -1,5 +1,6 @@
 import styles from "./articles.module.css";
 import Link from "next/link";
+import date from "../../lib/date";
 
 export default function Articles({ posts, meta }) {
   let page = meta.pagination.page;
@@ -25,7 +26,11 @@ export default function Articles({ posts, meta }) {
           <section className={styles.posts}>
             <PostMeta posts={posts} />
           </section>
-          {/* <PageControls page={page} next={next} prev={prev} /> */}
+          <section className={styles.viewMore}>
+            <Link href="/posts">
+            <a>View More</a>
+            </Link>
+          </section>
         </section>
         <section className={styles.col3}>
           <section className={`${styles.colHeader} flex-row`}>
@@ -50,7 +55,7 @@ const PostMeta = ({ posts }) => {
         </Link>
         <p className={styles.p}>{post.custom_excerpt}</p>
         <div className={`flex-row ${styles.meta}`}>
-          <span className={styles.time}>{date(post.published_at)}</span>
+          <span className={styles.time}>{ date(post.published_at)}</span>
           <div className={`${styles.dashes} flex-row`}>
             <div className={styles.dash} />
             <div className={styles.dash} />
@@ -67,7 +72,3 @@ const FallbackPage = (message) => (
     <h2>{message}</h2>
   </div>
 );
-
-function date(date) {
-  return new Date(date).toDateString().toUpperCase();
-}

@@ -2,6 +2,9 @@ html,
 body {
   padding: 0;
   margin: 0;
+  font-family: "Popins", sans-serif;
+  color: white;
+  background: #082032;
 }
 
 * {
@@ -10,16 +13,42 @@ body {
 
 .container {
   height: 100vh;
-  background: #082032;
   overflow: hidden;
 }
 
 .container1 {
   height: 100vh;
-  background: #082032;
   overflow-y: scroll;
 }
 
 .flex-row {
   display: flex;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #FE9D9D;
+}
+
+
+h1 {
+  font-size: 2rem;
+  /* font-weight: 900; */
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+p {
+  font-size: 1.05rem;
 }

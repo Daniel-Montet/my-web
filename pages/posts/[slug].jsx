@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import date from "../../lib/date";
 
 let BLOG_URL = process.env.BLOG_URL;
 let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
@@ -14,7 +15,7 @@ const getPost = async (slug) => {
 
 export async function getStaticProps({ params }) {
   let post = await getPost(params.slug);
-  //   console.log(post);
+
   if (post) {
     return {
       props: { post: post },
@@ -44,7 +45,7 @@ export default function Post({ post }) {
       <Link href="/">Go Back</Link>
       <h1>{post.title}</h1>
       <span>{post.reading_time}</span>
-      <span>{post.published_at}</span>
+      <span>{date(post.published_at)}</span>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </div>
   );
