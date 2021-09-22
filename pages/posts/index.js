@@ -1,5 +1,8 @@
-import styles from "./articles.module.css";
+import styles from "../../components/articles/articles.module.css";
 import Link from "next/link";
+
+let BLOG_URL = process.env.BLOG_URL;
+let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
 
 export default function Articles({ posts, meta }) {
   let page = meta.pagination.page;
@@ -15,7 +18,7 @@ export default function Articles({ posts, meta }) {
   }
 
   return (
-    <section className="container">
+    <section className="container1">
       <section className={`${styles.inner} flex-row`}>
         <section className={styles.col7}>
           <section className={`${styles.colHeader} flex-row`}>
@@ -25,7 +28,6 @@ export default function Articles({ posts, meta }) {
           <section className={styles.posts}>
             <PostMeta posts={posts} />
           </section>
-          {/* <PageControls page={page} next={next} prev={prev} /> */}
         </section>
         <section className={styles.col3}>
           <section className={`${styles.colHeader} flex-row`}>
@@ -62,6 +64,31 @@ const PostMeta = ({ posts }) => {
   });
 };
 
+const PageControls = ({ prev, next, page }) => {
+  let prevButton;
+  let nextButton;
+
+  if (prev) {
+    prevButton = <span>prev</span>;
+  } else {
+    prevButton = <span></span>;
+  }
+  if (next) {
+    nextButton = <span>next</span>;
+  } else {
+    nextButton = <span></span>;
+  }
+  return (
+    <div className="flex-row">
+      {prevButton}
+
+      <span>Page: {page}</span>
+
+      {nextButton}
+    </div>
+  );
+};
+
 const FallbackPage = (message) => (
   <div>
     <h2>{message}</h2>
@@ -71,3 +98,30 @@ const FallbackPage = (message) => (
 function date(date) {
   return new Date(date).toDateString().toUpperCase();
 }
+
+export async function getStaticProps(context) {
+  const { posts, meta, error } = await getPosts();
+
+  if (error) {
+    return {
+      props: { posts: null, meta: null },
+    };
+  }
+
+  return {
+    props: { posts, meta },
+  };
+}
+
+const getPosts = async () => {
+  let x = await fetch(
+    `${BLOG_URL}/ghost/api/v3/content/posts?key=${CONTENT_API_KEY}`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .catch((error) => {
+      return { error };
+    });
+  return x;
+};
