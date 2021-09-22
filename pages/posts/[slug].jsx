@@ -31,7 +31,21 @@ export async function getStaticPaths({ params }) {
   return { paths: [], fallback: true };
 }
 
-export default function Post({ post }) {
+function Post({post}) {
+  return (
+    <section className="post-outer">
+      <section className="meta">
+        <h1>{post.title}</h1>
+        <span>{post.reading_time}</span>
+        <span>{date(post.published_at)}</span>
+      </section>
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    </section>
+  );
+}
+
+
+export default function BlogPageLayout({ post }) {
   const router = useRouter();
 
   // If the page is not yet generated, this will be displayed
@@ -41,12 +55,22 @@ export default function Post({ post }) {
   }
 
   return (
-    <div>
-      <Link href="/">Go Back</Link>
-      <h1>{post.title}</h1>
-      <span>{post.reading_time}</span>
-      <span>{date(post.published_at)}</span>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    <>
+      <Nav/>
+      <Post post={post} />
+    </>
+  )
+}
+
+function Nav() {
+  return (
+    <div className="arrow-nav">
+      <Link href="/posts">
+        <a >Back to Posts</a>
+      </Link>
+      <Link href="/">
+        <a>Home</a>
+      </Link>
     </div>
-  );
+  )
 }
