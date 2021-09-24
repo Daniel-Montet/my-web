@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import date from "../../lib/date";
+import Arrow from "/public/left-arrow.svg";
 
 let BLOG_URL = process.env.BLOG_URL;
 let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
@@ -31,19 +32,40 @@ export async function getStaticPaths({ params }) {
   return { paths: [], fallback: true };
 }
 
-function Post({post}) {
+function Post({ post }) {
   return (
     <section className="post-outer">
-      <section className="meta">
+      <section>
         <h1>{post.title}</h1>
-        <span>{post.reading_time}</span>
-        <span>{date(post.published_at)}</span>
+        <div className="meta flex-row">
+          <span className="time">{date(post.published_at)}</span>
+          <span className="dot"></span>
+          <span>{post.reading_time} MIN</span>
+        </div>
       </section>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </section>
   );
 }
 
+function Nav() {
+  return (
+    <div className="arrow-nav">
+      <div>
+        <img src={Arrow.src} />
+        <Link href="/">
+          <a className="nav-link">Home</a>
+        </Link>
+      </div>
+      <div>
+        <img src={Arrow.src} />
+        <Link href="/posts">
+          <a className="nav-link">Posts</a>
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 export default function BlogPageLayout({ post }) {
   const router = useRouter();
@@ -55,22 +77,13 @@ export default function BlogPageLayout({ post }) {
   }
 
   return (
-    <>
-      <Nav/>
-      <Post post={post} />
-    </>
-  )
-}
-
-function Nav() {
-  return (
-    <div className="arrow-nav">
-      <Link href="/posts">
-        <a >Back to Posts</a>
-      </Link>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
-    </div>
-  )
+    <section className="grid">
+      <section className="item1">
+        <Nav />
+      </section>
+      <section className="item2">
+        <Post post={post} />
+      </section>
+    </section>
+  );
 }
