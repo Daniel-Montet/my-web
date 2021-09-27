@@ -28,7 +28,7 @@ export default function Articles({ posts, meta }) {
           </section>
           <section className={styles.viewMore}>
             <Link href="/posts">
-            <a>View More</a>
+              <a>View More</a>
             </Link>
           </section>
         </section>
@@ -55,12 +55,12 @@ const PostMeta = ({ posts }) => {
         </Link>
         <p className={styles.p}>{post.custom_excerpt}</p>
         <div className={`flex-row ${styles.meta}`}>
-          <span className={styles.time}>{ date(post.published_at)}</span>
+          <span className={styles.time}>{date(post.published_at)}</span>
           <div className={`${styles.dashes} flex-row`}>
             <div className={styles.dash} />
             <div className={styles.dash} />
           </div>
-          <span>{post.reading_time} MIN</span>
+          <span>{post.reading_time} min read</span>
         </div>
       </article>
     );

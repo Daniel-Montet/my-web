@@ -40,7 +40,7 @@ function Post({ post }) {
         <div className="meta flex-row">
           <span className="time">{date(post.published_at)}</span>
           <span className="dot"></span>
-          <span>{post.reading_time} MIN</span>
+          <span>{post.reading_time} min read</span>
         </div>
       </section>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />

@@ -38,25 +38,46 @@ a:hover {
 
 h1 {
   font-size: 2rem;
-  /* font-weight: 900; */
+  margin: 1.5em 0 0 0;
 }
 
 h2 {
   font-size: 1.8rem;
-  font-weight: 600;
+  /* font-weight: 600; */
+  margin: 1.5em 0 0 0;
 }
 
 h3 {
   font-size: 1.5rem;
+  margin: 1.5em 0 0 0;
 }
 p {
   font-size: 1.05rem;
+  /* margin: 1em 0 0 0; */
 }
 
-/* Global post styles */
+blockquote {
+  margin: 2em 0;
+  font-style: italic;
+  position: relative;
+}
+
+blockquote:before {
+  content: " ";
+  position: absolute;
+  left: -1.5em;
+  top: 0;
+  bottom: 0;
+  width: 0.3rem;
+  background: #fe9d9d;
+}
+
+/* ------------------------------------
+-->  GLOBAL POSTS & PAGE STYLES
+-------------------------------------- */
 .grid {
   display: grid;
-  grid-template-columns: 10% auto;
+  grid-template-columns: 10% 80% 10%;
 }
 
 .item1 {
@@ -105,4 +126,105 @@ p {
 
 .post-outer {
   padding: 0rem 1.5rem;
+}
+
+.post-outer > div,
+.post-outer > section {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+}
+
+.post-outer > div p,
+.post-outer > div h1,
+.post-outer > div h2,
+.post-outer > div h3,
+.post-outer > div h4,
+.post-outer > div h5,
+.post-outer > div ul,
+.post-outer > div ol,
+.post-outer > div pre,
+.post-outer > div .kg-bookmark-card,
+.post-outer > div .kg-gallery-card,
+.post-outer > div blockquote,
+.post-outer > section h1,
+.post-outer > section div {
+  grid-column: 2;
+}
+
+.post-outer > div .kg-image-card {
+  grid-column: 1 / span 3;
+}
+
+/* --------------------------
+ ---> CODE BLOCK
+---------------------------- */
+pre {
+  background: #0e1013;
+  padding: 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 2em 0;
+  overflow-x: scroll;
+}
+
+/* ---------- BOOKMARK  ------------------ */
+
+.kg-bookmark-container {
+  text-decoration: none;
+  display: grid;
+  border: 0.05rem solid #c2ced769;
+  border-radius: 5px;
+  grid-template-columns: 60% 5% 35%;
+  padding: 2px;
+}
+
+.kg-bookmark-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.kg-bookmark-content {
+  padding: 1rem;
+}
+
+.kg-bookmark-description {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+
+.kg-bookmark-thumbnail {
+  position: relative;
+  grid-column: 3;
+}
+
+.kg-bookmark-metadata {
+  display: grid;
+  grid-template-columns: 6% auto;
+  grid-column-gap: 3%;
+  align-items: center;
+}
+
+.kg-bookmark-thumbnail img,
+.kg-bookmark-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.kg-bookmark-publisher {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* --------- POST IMAGES ------------ */
+.kg-card {
+  position: relative;
+  width: 100%;
+  margin: 3em 0;
+}
+
+.kg-image,
+.kg-gallery-image img {
+  width: 100%;
+  height: 100%;
 }
