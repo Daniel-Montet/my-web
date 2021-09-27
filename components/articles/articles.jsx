@@ -2,10 +2,7 @@ import styles from "./articles.module.css";
 import Link from "next/link";
 import date from "../../lib/date";
 
-export default function Articles({ posts, meta }) {
-  let page = meta.pagination.page;
-  let next = meta.pagination.next;
-  let prev = meta.pagination.prev;
+export default function Articles({ posts, tags  }) {
 
   if (posts === null) {
     return (
@@ -37,6 +34,9 @@ export default function Articles({ posts, meta }) {
             <h4 className={styles.h4}>TAGS</h4>
             <div className={styles.hr} />
           </section>
+          <section>
+            <TagsMeta tags={tags}/>
+          </section>
         </section>
       </section>
     </section>
@@ -49,7 +49,7 @@ const PostMeta = ({ posts }) => {
     return (
       <article className={styles.post} key={post.id}>
         <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
-          <a href="#" className={styles.h2}>
+          <a className={styles.h2}>
             {post.title}
           </a>
         </Link>
@@ -66,6 +66,15 @@ const PostMeta = ({ posts }) => {
     );
   });
 };
+
+
+const TagsMeta = ({tags}) => {
+  return tags.map((tag) =>
+    <Link href="/tags/[slug]" as={`/tags/${tag.slug}`}>
+      <a>{tag.name}</a>
+    </Link>
+  )
+}
 
 const FallbackPage = (message) => (
   <div>
