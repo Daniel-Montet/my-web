@@ -12,19 +12,23 @@ export default function Home({ postsMeta, posts, tags, tagsMeta }) {
       <Nav />
       <Intro />
       <Me />
-      <Articles posts={posts} postsMeta={postsMeta} tags={tags} tagsMeta={tagsMeta}/>
+      <Articles
+        posts={posts}
+        postsMeta={postsMeta}
+        tags={tags}
+        tagsMeta={tagsMeta}
+      />
     </>
   );
 }
 
 export async function getStaticProps(context) {
-  const { posts, meta:postsMeta, error:postsError } = await getPosts();
-  const { tags, meta:tagsMeta, error:tagsError } = await getTags();
-  
+  const { posts, meta: postsMeta, error: postsError } = await getPosts();
+  const { tags, meta: tagsMeta, error: tagsError } = await getTags();
 
   if (postsError || tagsError) {
     return {
-      props: { posts: null, postsMeta: null, tags: null, tagsMeta: null  },
+      props: { posts: null, postsMeta: null, tags: null, tagsMeta: null },
     };
   }
 
@@ -47,7 +51,6 @@ const getPosts = async () => {
 
   return res;
 };
-
 
 const getTags = async () => {
   let res = await fetch(

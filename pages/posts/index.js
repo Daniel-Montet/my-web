@@ -1,14 +1,11 @@
-import styles from "../../components/articles/articles.module.css";
+import { getPosts, getTags } from "../../lib/ghostUtils";
+import { useRouter } from "next/router";
 import Link from "next/link";
+import date from "../../lib/date";
+import styles from "../../components/articles/articles.module.css";
+import Arrow from "/public/left-arrow.svg";
 
-let BLOG_URL = process.env.BLOG_URL;
-let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
-
-export default function Articles({ posts, meta }) {
-  let page = meta.pagination.page;
-  let next = meta.pagination.next;
-  let prev = meta.pagination.prev;
-
+function Articles({ posts, tags }) {
   if (posts === null) {
     return (
       <div className="container">
@@ -18,8 +15,8 @@ export default function Articles({ posts, meta }) {
   }
 
   return (
-    <section className="container1">
-      <section className={`${styles.inner} flex-row`}>
+    <section>
+      <section className="article-inner flex-row">
         <section className={styles.col7}>
           <section className={`${styles.colHeader} flex-row`}>
             <h4 className={styles.h4}>ARTICLES</h4>
@@ -33,6 +30,9 @@ export default function Articles({ posts, meta }) {
           <section className={`${styles.colHeader} flex-row`}>
             <h4 className={styles.h4}>TAGS</h4>
             <div className={styles.hr} />
+          </section>
+          <section>
+            <TagsMeta tags={tags} />
           </section>
         </section>
       </section>
@@ -64,64 +64,71 @@ const PostMeta = ({ posts }) => {
   });
 };
 
-const PageControls = ({ prev, next, page }) => {
-  let prevButton;
-  let nextButton;
-
-  if (prev) {
-    prevButton = <span>prev</span>;
-  } else {
-    prevButton = <span></span>;
-  }
-  if (next) {
-    nextButton = <span>next</span>;
-  } else {
-    nextButton = <span></span>;
-  }
-  return (
-    <div className="flex-row">
-      {prevButton}
-
-      <span>Page: {page}</span>
-
-      {nextButton}
-    </div>
-  );
-};
-
 const FallbackPage = (message) => (
   <div>
     <h2>{message}</h2>
   </div>
 );
 
-function date(date) {
-  return new Date(date).toDateString().toUpperCase();
-}
-
 export async function getStaticProps(context) {
-  const { posts, meta, error } = await getPosts();
+  const { posts, meta: postsMeta, error: postsError } = await getPosts();
+  const { tags, meta: tagsMeta, error: tagsError } = await getTags();
 
-  if (error) {
+  if (postsError || tagsError) {
     return {
-      props: { posts: null, meta: null },
+      props: { posts: null, postsMeta: null, tags: null, tagsMeta: null },
     };
   }
 
   return {
-    props: { posts, meta },
+    props: { posts, postsMeta, tags, tagsMeta },
   };
 }
 
-const getPosts = async () => {
-  let x = await fetch(
-    `${BLOG_URL}/ghost/api/v3/content/posts?key=${CONTENT_API_KEY}`
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .catch((error) => {
-      return { error };
-    });
-  return x;
+const TagsMeta = ({ tags }) => {
+  return tags.map((tag) => (
+    <Link href="/tags/[slug]" as={`/tags/${tag.slug}`}>
+      <a>{tag.name}</a>
+    </Link>
+  ));
 };
+
+function Nav() {
+  return (
+    <div className="arrow-nav">
+      <div>
+        <img src={Arrow.src} />
+        <Link href="/">
+          <a className="nav-link">Home</a>
+        </Link>
+      </div>
+      <div>
+        <img src={Arrow.src} />
+        <Link href="/posts">
+          <a className="nav-link">Posts</a>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+export default function BlogPageLayout({ posts, tags }) {
+  const router = useRouter();
+
+  // If the page is not yet generated, this will be displayed
+  // initially until getStaticProps() finishes running
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <section className="grid">
+      <section className="item1">
+        <Nav />
+      </section>
+      <section className="item2">
+        <Articles posts={posts} tags={tags} />
+      </section>
+    </section>
+  );
+}

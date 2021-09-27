@@ -72,6 +72,11 @@ blockquote:before {
   background: #fe9d9d;
 }
 
+.article-inner {
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+}
+
 /* ------------------------------------
 -->  GLOBAL POSTS & PAGE STYLES
 -------------------------------------- */
