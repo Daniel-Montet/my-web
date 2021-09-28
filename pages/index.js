@@ -1,6 +1,6 @@
 import Articles from "../components/articles/articles";
 import Intro from "../components/intro/intro";
-import Nav from "../components/navigation/nav";
+import { Nav } from "../components/navigation/nav";
 import Me from "../components/me/me";
 
 let BLOG_URL = process.env.BLOG_URL;

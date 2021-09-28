@@ -3,7 +3,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import date from "../../lib/date";
 import styles from "../../components/articles/articles.module.css";
-import Arrow from "/public/left-arrow.svg";
+import {OtherNav}  from "../../components/navigation/nav";
+import { Tags } from "../../components/tags/tags";
+
 
 function Articles({ posts, tags }) {
   if (posts === null) {
@@ -32,7 +34,7 @@ function Articles({ posts, tags }) {
             <div className={styles.hr} />
           </section>
           <section>
-            <TagsMeta tags={tags} />
+            <Tags tags={tags} />
           </section>
         </section>
       </section>
@@ -51,13 +53,10 @@ const PostMeta = ({ posts }) => {
           </a>
         </Link>
         <p className={styles.p}>{post.custom_excerpt}</p>
-        <div className={`flex-row ${styles.meta}`}>
-          <span className={styles.time}>{date(post.published_at)}</span>
-          <div className={`${styles.dashes} flex-row`}>
-            <div className={styles.dash} />
-            <div className={styles.dash} />
-          </div>
-          <span>{post.reading_time} MIN</span>
+        <div className="meta flex-row">
+          <span className="time">{date(post.published_at)}</span>
+          <span className="dot"></span>
+          <span>{post.reading_time} min read</span>
         </div>
       </article>
     );
@@ -85,32 +84,7 @@ export async function getStaticProps(context) {
   };
 }
 
-const TagsMeta = ({ tags }) => {
-  return tags.map((tag) => (
-    <Link href="/tags/[slug]" as={`/tags/${tag.slug}`}>
-      <a>{tag.name}</a>
-    </Link>
-  ));
-};
 
-function Nav() {
-  return (
-    <div className="arrow-nav">
-      <div>
-        <img src={Arrow.src} />
-        <Link href="/">
-          <a className="nav-link">Home</a>
-        </Link>
-      </div>
-      <div>
-        <img src={Arrow.src} />
-        <Link href="/posts">
-          <a className="nav-link">Posts</a>
-        </Link>
-      </div>
-    </div>
-  );
-}
 
 export default function BlogPageLayout({ posts, tags }) {
   const router = useRouter();
@@ -124,7 +98,7 @@ export default function BlogPageLayout({ posts, tags }) {
   return (
     <section className="grid">
       <section className="item1">
-        <Nav />
+        <OtherNav/>
       </section>
       <section className="item2">
         <Articles posts={posts} tags={tags} />

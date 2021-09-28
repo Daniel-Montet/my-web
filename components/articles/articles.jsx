@@ -1,6 +1,7 @@
 import styles from "./articles.module.css";
 import Link from "next/link";
 import date from "../../lib/date";
+import {Tags} from "../tags/tags";
 
 export default function Articles({ posts, tags  }) {
 
@@ -35,7 +36,7 @@ export default function Articles({ posts, tags  }) {
             <div className={styles.hr} />
           </section>
           <section>
-            <TagsMeta tags={tags}/>
+            <Tags tags={tags}/>
           </section>
         </section>
       </section>
@@ -54,12 +55,9 @@ const PostMeta = ({ posts }) => {
           </a>
         </Link>
         <p className={styles.p}>{post.custom_excerpt}</p>
-        <div className={`flex-row ${styles.meta}`}>
-          <span className={styles.time}>{date(post.published_at)}</span>
-          <div className={`${styles.dashes} flex-row`}>
-            <div className={styles.dash} />
-            <div className={styles.dash} />
-          </div>
+        <div className="meta flex-row">
+          <span className="time">{date(post.published_at)}</span>
+          <span className="dot"></span>
           <span>{post.reading_time} min read</span>
         </div>
       </article>
@@ -67,14 +65,6 @@ const PostMeta = ({ posts }) => {
   });
 };
 
-
-const TagsMeta = ({tags}) => {
-  return tags.map((tag) =>
-    <Link href="/tags/[slug]" as={`/tags/${tag.slug}` } key={tag.id}>
-      <a>{tag.name}</a>
-    </Link>
-  )
-}
 
 const FallbackPage = (message) => (
   <div>

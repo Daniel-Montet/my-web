@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import date from "../../lib/date";
-import Arrow from "/public/left-arrow.svg";
+import { OtherNav } from "../../components/navigation/nav"
 
 let BLOG_URL = process.env.BLOG_URL;
 let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
@@ -48,24 +47,6 @@ function Post({ post }) {
   );
 }
 
-function Nav() {
-  return (
-    <div className="arrow-nav">
-      <div>
-        <img src={Arrow.src} />
-        <Link href="/">
-          <a className="nav-link">Home</a>
-        </Link>
-      </div>
-      <div>
-        <img src={Arrow.src} />
-        <Link href="/posts">
-          <a className="nav-link">Posts</a>
-        </Link>
-      </div>
-    </div>
-  );
-}
 
 export default function BlogPageLayout({ post }) {
   const router = useRouter();
@@ -79,7 +60,7 @@ export default function BlogPageLayout({ post }) {
   return (
     <section className="grid">
       <section className="item1">
-        <Nav />
+        <OtherNav />
       </section>
       <section className="item2">
         <Post post={post} />
