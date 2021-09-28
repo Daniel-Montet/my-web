@@ -5,6 +5,7 @@ import date from "../../lib/date";
 import styles from "../../components/articles/articles.module.css";
 import {OtherNav}  from "../../components/navigation/nav";
 import { Tags } from "../../components/tags/tags";
+import Layout from "../../components/layout/layout";
 
 
 function Articles({ posts, tags }) {
@@ -94,15 +95,6 @@ export default function BlogPageLayout({ posts, tags }) {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
-
-  return (
-    <section className="grid">
-      <section className="item1">
-        <OtherNav/>
-      </section>
-      <section className="item2">
-        <Articles posts={posts} tags={tags} />
-      </section>
-    </section>
-  );
+  
+  return <Layout Nav={() => <OtherNav/>} Content={() => <Articles posts={posts} tags={tags}/>}/> 
 }

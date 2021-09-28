@@ -1,11 +1,11 @@
-export default function Layout(Nav,Content) {
+export default function Layout({Nav,Content}) {
     return (
         <section className="grid">
       <section className="item1">
-        {/* <Nav /> */}
+        <Nav />
       </section>
       <section className="item2">
-        {/* <Articles posts={posts} tags={tags} /> */}
+        <Content />
       </section>
     </section>
     )
