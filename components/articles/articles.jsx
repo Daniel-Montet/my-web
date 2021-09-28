@@ -70,7 +70,7 @@ const PostMeta = ({ posts }) => {
 
 const TagsMeta = ({tags}) => {
   return tags.map((tag) =>
-    <Link href="/tags/[slug]" as={`/tags/${tag.slug}`}>
+    <Link href="/tags/[slug]" as={`/tags/${tag.slug}` } key={tag.id}>
       <a>{tag.name}</a>
     </Link>
   )

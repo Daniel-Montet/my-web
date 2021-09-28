@@ -13,7 +13,7 @@ function Articles({ posts, tags }) {
       </div>
     );
   }
-  console.log(posts);
+  // console.log(posts);
   return (
     <section>
       <section className="article-inner flex-row">
