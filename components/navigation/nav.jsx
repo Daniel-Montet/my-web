@@ -27,10 +27,10 @@ export function Nav() {
       <span>
         <Image height={25} className={styles.svg} src={Article} />
       </span>
-      <div className={styles.hr} />
+      {/* <div className={styles.hr} />
       <span>
         <Image height={25} className={styles.svg} src={Envelope} />
-      </span>
+      </span> */}
     </nav>
   );
 }

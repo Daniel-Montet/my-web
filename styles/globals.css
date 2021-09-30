@@ -53,7 +53,6 @@ h3 {
 }
 p {
   font-size: 1.05rem;
-  /* margin: 1em 0 0 0; */
 }
 
 blockquote {
@@ -83,10 +82,20 @@ blockquote:before {
 .grid {
   display: grid;
   grid-template-columns: 10% 80% 10%;
+  width: 100%;
+}
+
+.full-vh {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .item1 {
   display: grid;
+}
+
+.item2 {
+  grid-column: 2/4;
 }
 
 .meta {
@@ -106,28 +115,6 @@ blockquote:before {
   margin: 0 1rem;
 }
 
-.arrow-nav {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  top: 40%;
-}
-
-.arrow-nav > div {
-  display: flex;
-  align-items: center;
-  margin: 1rem;
-}
-
-.arrow-nav img {
-  width: 20px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #ffffff;
-  padding-left: 1rem;
-}
 
 .post-outer {
   padding: 0rem 1.5rem;
@@ -233,3 +220,31 @@ pre {
   width: 100%;
   height: 100%;
 }
+
+
+/* -------------------
+---> NAVIGATION
+-------------------- */
+.arrow-nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 40%;
+}
+
+.arrow-nav > div {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+}
+
+.arrow-nav img {
+  width: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #ffffff;
+  padding-left: 1rem;
+}
+

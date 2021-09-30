@@ -2,6 +2,7 @@ import Articles from "../components/articles/articles";
 import Intro from "../components/intro/intro";
 import { Nav } from "../components/navigation/nav";
 import Me from "../components/me/me";
+import { Grid } from "../components/layout/layout";
 
 let BLOG_URL = process.env.BLOG_URL;
 let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
@@ -9,7 +10,6 @@ let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
 export default function Home({ postsMeta, posts, tags, tagsMeta }) {
   return (
     <>
-      <Nav />
       <Intro />
       <Me />
       <Articles
@@ -18,6 +18,16 @@ export default function Home({ postsMeta, posts, tags, tagsMeta }) {
         tags={tags}
         tagsMeta={tagsMeta}
       />
+      <Grid stacked fullHeight>
+        <Intro />
+        <Me />
+        <Articles
+          posts={posts}
+          postsMeta={postsMeta}
+          tags={tags}
+          tagsMeta={tagsMeta}
+        />
+      </Grid>
     </>
   );
 }

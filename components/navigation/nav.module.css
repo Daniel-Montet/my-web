@@ -1,14 +1,16 @@
 /* Navigation */
+
 .nav {
   position: fixed;
   border-radius: 20px;
-  height: 33rem;
-  width: 4.6875rem;
-  top: 3rem;
+  height: 50%;
+  width: 6%;
+  top: 25%;
   left: 1.5rem;
   overflow: hidden;
   z-index: 10;
 }
+
 .nav > span {
   display: flex;
   align-items: center;
