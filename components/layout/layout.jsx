@@ -1,8 +1,7 @@
-import React,{ Children } from "react"
+import React, { Children } from "react";
 import { Nav, OtherNav } from "../navigation/nav";
 
-
-export function Grid ({ fullHeight,stacked,children }) {
+export function Grid({ fullHeight, stacked, children }) {
   let Navigation;
   let content;
 
@@ -12,28 +11,24 @@ export function Grid ({ fullHeight,stacked,children }) {
     Navigation = OtherNav;
   }
 
-
-  if ( fullHeight ) {
-    content = React.Children.map(children, child => {
-        return <ContentBox>{ child } </ContentBox>
-    })
-  }
-   else {
+  if (fullHeight) {
+    content = React.Children.map(children, (child) => {
+      return <ContentBox>{child} </ContentBox>;
+    });
+  } else {
     content = children;
   }
 
   return (
-    <section className="grid">
-    <section className="item1">
-      <Navigation />
+    <section className="layout-grid">
+      <section className="layout-col-1">
+        <Navigation />
+      </section>
+      <section className="layout-col-2">{content}</section>
     </section>
-    <section className="item2">
-      { content }
-    </section>
-  </section>
-  )
+  );
 }
 
-function ContentBox({children}) {
-  return <section className="full-vh"> { children } </section>
+function ContentBox({ children }) {
+  return <section className="full-vh"> {children} </section>;
 }

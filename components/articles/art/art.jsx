@@ -1,10 +1,9 @@
-import styles from "./articles.module.css";
+import styles from "../articles.module.css";
 import Link from "next/link";
-import date from "../../lib/date";
-import {Tags} from "../tags/tags";
+import date from "../../../lib/date";
+import { Tags } from "../../tags/tags";
 
-
-export default function Articles({ posts, tags  }) {
+export default function Excerpt({ posts, tags }) {
   if (posts === null) {
     return (
       <div className="container">
@@ -14,31 +13,31 @@ export default function Articles({ posts, tags  }) {
   }
 
   return (
-      <section className="grid">
-        <section className={styles.col7}>
-          <section className={`${styles.colHeader} flex-row`}>
-            <h4 className={styles.h4}>ARTICLES</h4>
-            <div className={styles.hr} />
-          </section>
-          <section className={styles.posts}>
-            <PostMeta posts={posts} />
-          </section>
-          <section className={styles.viewMore}>
-            <Link href="/posts">
-              <a>View More</a>
-            </Link>
-          </section>
+    <section className="excerpt-container">
+      <section className="excerpt-column-1">
+        <section className="small-page-title">
+          <h4>ARTICLES</h4>
+          <div className="hr" />
         </section>
-        <section className={styles.col3}>
-          <section className={`${styles.colHeader} flex-row`}>
-            <h4 className={styles.h4}>TAGS</h4>
-            <div className={styles.hr} />
-          </section>
-          <section>
-            <Tags tags={tags}/>
-          </section>
+        <section className="excerpt-list">
+          <PostMeta posts={posts} />
+        </section>
+        <section className="_link">
+          <Link href="/posts">
+            <a>View More</a>
+          </Link>
         </section>
       </section>
+      <section className="excerpt-column-2">
+        <section className="small-page-title">
+          <h4>TAGS</h4>
+          <div className="hr" />
+        </section>
+        <section className="tag-list">
+          <Tags tags={tags} />
+        </section>
+      </section>
+    </section>
   );
 }
 
@@ -48,9 +47,7 @@ const PostMeta = ({ posts }) => {
     return (
       <article className={styles.post} key={post.id}>
         <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
-          <a className={styles.h2}>
-            {post.title}
-          </a>
+          <a className={styles.h2}>{post.title}</a>
         </Link>
         <p className={styles.p}>{post.custom_excerpt}</p>
         <div className="meta flex-row">
@@ -63,23 +60,8 @@ const PostMeta = ({ posts }) => {
   });
 };
 
-
 const FallbackPage = (message) => (
   <div>
     <h2>{message}</h2>
   </div>
 );
-
-
-export default function BlogPageLayout({ posts, tags }) {
-    const router = useRouter();
-  
-    // If the page is not yet generated, this will be displayed
-    // initially until getStaticProps() finishes running
-    if (router.isFallback) {
-      return <div>Loading...</div>;
-    }
-    
-    return <Articles posts={posts} tags={tags}/>
-}
-  
