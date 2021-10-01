@@ -52,7 +52,7 @@ h3 {
 }
 
 h4 {
-    font-size: 1rem;
+  font-size: 1 rem;
 }
 
 p {
@@ -75,45 +75,117 @@ blockquote:before {
   background: #fe9d9d;
 }
 
-.article-inner {
-  padding: 1rem 1.5rem;
-  justify-content: space-between;
-}
-
 .hr {
   height: 0.05rem;
   background-color: white;
   opacity: 0.6;
 }
 
-.h2 {
+.h2, .h2 h2 {
+  margin: 0;
   text-decoration: none;
 }
+
+.small-page-title {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.small-page-title h4 {
+  grid-column: 1 / span 3;
+}
+
+.small-page-title .hr {
+  grid-column: 4 / span 12;
+}
+
+.large-page-title {
+  font-size: 2.5rem;
+}
+
+/* ----------------------------------
+---> ABOUT ME PAGE
+------------------------------------ */
+
 /* ------------------------------------
 -->  GLOBAL POSTS & PAGE STYLES
 -------------------------------------- */
+/*   1. LAYOUT-GRID */
+
 .layout-grid {
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   width: 100%;
+}
+
+.layout-col-1 {
+  grid-column: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout-col-2 {
+  grid-column: 2 / span 12;
 }
 
 .full-vh {
   height: 100vh;
   overflow: hidden;
-}
-
-.layout-col-1 {
   display: grid;
 }
 
-.layout-col-2 {
-  grid-column: 2/4;
+.inner-section {
+  display: grid;
+  grid-template-columns:
+    1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+    1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.profile .col-1 {
+  grid-column: 2 / 12;
+}
+
+.profile .col-2 {
+  grid-column: 18 / span 24;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 22fr;
+}
+
+.profile .col-2 img {
+  grid-column: 2;
+  height: 100%;
+  width: 100%;
+}
+
+/*  2. EXCERPT GRID  */
+.excerpt-grid {
+  grid-template-rows: 1fr 22fr 1fr;
+}
+
+.excerpt-grid .col-1 {
+  grid-column: 2 / 15;
+  grid-row: 2;
+}
+
+.excerpt-grid .col-2 {
+  grid-column: 16 / 23;
+  grid-row: 2;
+}
+
+.excerpt {
+  margin-bottom: 2em;
 }
 
 .meta {
   align-items: center;
   font-size: 0.9rem;
+}
+
+._link {
+  margin-top: 2em;
 }
 
 .time {
@@ -128,39 +200,46 @@ blockquote:before {
   margin: 0 1rem;
 }
 
-.excerpt {
-  padding-bottom: 2rem;
-}
 
+/* ---------------------------
+---> SINGLE POST STYLES
+------------------------------- */
 .post-outer {
-  padding: 0rem 1.5rem;
+  /* padding: 0rem 1.5rem; */
+  grid-template-rows: 1fr auto;
 }
 
-.post-outer > div,
-.post-outer > section {
-  display: grid;
-  grid-template-columns: 10% auto 10%;
+.post-header {
+  grid-column: 4 / span 20;
+  grid-row: 1;
 }
 
-.post-outer > div p,
-.post-outer > div h1,
-.post-outer > div h2,
-.post-outer > div h3,
-.post-outer > div h4,
-.post-outer > div h5,
-.post-outer > div ul,
-.post-outer > div ol,
-.post-outer > div pre,
-.post-outer > div .kg-bookmark-card,
-.post-outer > div .kg-gallery-card,
-.post-outer > div blockquote,
-.post-outer > section h1,
-.post-outer > section div {
-  grid-column: 2;
+.post-content {
+  grid-row: 2;
+  grid-column: 1 / span 24;
 }
 
-.post-outer > div .kg-image-card {
-  grid-column: 1 / span 3;
+
+
+.post-content p,
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content ul,
+.post-content ol,
+.post-content pre,
+.post-content .kg-bookmark-card,
+.post-content .kg-gallery-card,
+.post-content blockquote
+{
+  grid-column: 4 / 20;
+}
+
+
+.post-content  .kg-image-card {
+  grid-column: 2 / 22;
 }
 
 /* --------------------------
@@ -237,7 +316,6 @@ pre {
   height: 100%;
 }
 
-
 /* -------------------
 ---> NAVIGATION
 -------------------- */
@@ -263,4 +341,3 @@ pre {
   color: #ffffff;
   padding-left: 1rem;
 }
-

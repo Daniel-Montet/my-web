@@ -8,7 +8,6 @@ import Envelope from "/public/envelope.svg";
 import Arrow from "/public/left-arrow.svg";
 import Link from "next/link";
 
-
 export function Nav() {
   return (
     <nav className={`${styles.nav} ${styles.chillBorder}`}>
@@ -27,14 +26,13 @@ export function Nav() {
       <span>
         <Image height={25} className={styles.svg} src={Article} />
       </span>
-      {/* <div className={styles.hr} />
-      <span>
+      <div className={styles.hr} />
+      {/* <span>
         <Image height={25} className={styles.svg} src={Envelope} />
       </span> */}
     </nav>
   );
 }
-
 
 export function OtherNav() {
   return (

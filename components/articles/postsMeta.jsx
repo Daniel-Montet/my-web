@@ -1,5 +1,4 @@
-import date from "../../../lib/date";
-import styles from "../articles.module.css";
+import date from "../../lib/date";
 import Link from "next/link"
 
 // renders post and a short excerpt

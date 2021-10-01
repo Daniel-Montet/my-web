@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import date from "../../lib/date";
 import { OtherNav } from "../../components/navigation/nav"
+import { Grid } from "../../components/layout/layout";
 
 let BLOG_URL = process.env.BLOG_URL;
 let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
@@ -33,8 +34,8 @@ export async function getStaticPaths() {
 
 function Post({ post }) {
   return (
-    <section className="post-outer">
-      <section>
+    <section className="post-outer inner-section">
+      <section className="post-header">
         <h1>{post.title}</h1>
         <div className="meta flex-row">
           <span className="time">{date(post.published_at)}</span>
@@ -42,7 +43,7 @@ function Post({ post }) {
           <span>{post.reading_time} min read</span>
         </div>
       </section>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div className="post-content inner-section" dangerouslySetInnerHTML={{ __html: post.html }} />
     </section>
   );
 }
@@ -58,13 +59,8 @@ export default function BlogPageLayout({ post }) {
   }
 
   return (
-    <section className="grid">
-      <section className="item1">
-        <OtherNav />
-      </section>
-      <section className="item2">
+      <Grid>
         <Post post={post} />
-      </section>
-    </section>
+      </Grid>
   );
 }
