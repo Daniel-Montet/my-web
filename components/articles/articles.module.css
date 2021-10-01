@@ -4,14 +4,6 @@
   justify-content: space-between;
 }
 
-.col7 {
-  width: 70%;
-}
-
-.col3 {
-  width: 25%;
-}
-
 .colHeader {
   align-items: center;
   justify-content: space-between;
@@ -54,17 +46,6 @@
   font-family: "Poppins", sans-serif;
   align-items: center;
   font-size: 0.8rem;
-}
-.dashes {
-  width: 5%;
-  padding: 0 0.5rem;
-}
-
-.dash {
-  width: 0.5rem;
-  background-color: white;
-  height: 0.01rem;
-  margin: 0 0.1rem;
 }
 
 .post {

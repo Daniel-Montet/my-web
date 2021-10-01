@@ -1,6 +1,6 @@
 import Articles from "../components/articles/articles";
+import Article from "../components/articles/art/art";
 import Intro from "../components/intro/intro";
-import { Nav } from "../components/navigation/nav";
 import Me from "../components/me/me";
 import { Grid } from "../components/layout/layout";
 
@@ -19,9 +19,7 @@ export default function Home({ postsMeta, posts, tags, tagsMeta }) {
         tagsMeta={tagsMeta}
       />
       <Grid stacked fullHeight>
-        <Intro />
-        <Me />
-        <Articles
+        <Article
           posts={posts}
           postsMeta={postsMeta}
           tags={tags}

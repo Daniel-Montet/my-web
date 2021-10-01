@@ -17,11 +17,10 @@ function Articles({ posts, tags }) {
   }
 
   return (
-    <section>
       <section className="article-inner flex-row">
         <section className={styles.col7}>
           <section className={`${styles.colHeader} flex-row`}>
-            <h4 className={styles.h4}>ARTICLES</h4>
+            <h4 >ARTICLES</h4>
             <div className={styles.hr} />
           </section>
           <section className={styles.posts}>
@@ -38,7 +37,6 @@ function Articles({ posts, tags }) {
           </section>
         </section>
       </section>
-    </section>
   );
 }
 

@@ -23,11 +23,11 @@ export function Grid ({ fullHeight,stacked,children }) {
   }
 
   return (
-    <section className="grid">
-    <section className="item1">
+    <section className="layout-grid">
+    <section className="layout-col-1">
       <Navigation />
     </section>
-    <section className="item2">
+    <section className="layout-col-2">
       { content }
     </section>
   </section>
