@@ -1,23 +1,23 @@
 import Intro from "../components/intro/intro";
 import Me from "../components/me/me";
 import { Grid } from "../components/layout/layout";
-import Excerpt from "../components/articles/art/art";
+import Excerpt from "../components/articles/articles";
 
 let BLOG_URL = process.env.BLOG_URL;
 let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
 
 export default function Home({ postsMeta, posts, tags, tagsMeta }) {
   return (
-      <Grid stacked fullHeight>
+    <Grid stacked fullHeight>
       <Intro />
-      <Me/>
-        <Excerpt
-          posts={posts}
-          postsMeta={postsMeta}
-          tags={tags}
-          tagsMeta={tagsMeta}
-        />
-      </Grid>
+      {/* <Me />
+      <Excerpt
+        posts={posts}
+        postsMeta={postsMeta}
+        tags={tags}
+        tagsMeta={tagsMeta}
+      /> */}
+    </Grid>
   );
 }
 
