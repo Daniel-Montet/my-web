@@ -115,7 +115,7 @@ blockquote:before {
   object-fit: cover;
   position: absolute;
   height: 85%;
-  width: 120%;
+  width: 110%;
   right: -3rem;
 }
 
@@ -147,7 +147,6 @@ blockquote:before {
 .layout-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  width: 100%;
 }
 
 .layout-col-1 {
@@ -159,6 +158,8 @@ blockquote:before {
 
 .layout-col-2 {
   grid-column: 2 / span 12;
+  max-width: 2000px;
+  margin: auto;
 }
 
 .full-vh {
@@ -354,8 +355,7 @@ pre {
 /* -------------------------------
 ---> MEDIA QUERIES
 ---------------------------------- */
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 680px) {
   .layout-col-1 {
     display: none;
   }
@@ -370,10 +370,6 @@ pre {
 
   .intro .col-2 {
     display: none;
-  }
-
-  .full-vh {
-    height: auto;
   }
 
   .profile .col-1 {
@@ -426,5 +422,109 @@ pre {
 
   .post-content .kg-image-card {
     grid-column: 2 / 24;
+  }
+
+  .intro h1 {
+    font-size: 3.3125rem;
+  }
+}
+
+@media only screen and (min-width: 680px) {
+  .layout-col-1 {
+    display: none;
+  }
+
+  .layout-col-2 {
+    grid-column: 1 / span 24;
+  }
+
+  .intro h4 {
+    font-size: 1rem;
+  }
+
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .intro h3 {
+    font-size: 1.2rem;
+  }
+
+  .intro .col-2 img {
+    height: 100%;
+    top: -1rem;
+    width: auto;
+    right: -10rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .layout-col-1 {
+    display: flex;
+  }
+
+  .layout-col-2 {
+    grid-column: 2 / span 12;
+  }
+
+  .intro .col-1 {
+    grid-column: 2 / 12;
+  }
+
+  .full-vh {
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .intro .col-2 img {
+    height: 115%;
+    top: -4rem;
+    width: auto;
+    right: -10rem;
+  }
+
+  .intro h1 {
+    font-size: 2.4rem;
+  }
+
+  .large-page-title {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .intro .col-2 img {
+    height: 115%;
+    top: -4rem;
+    width: auto;
+    right: -3rem;
+  }
+
+  .intro h1 {
+    font-size: 2.8rem;
+  }
+  .full-vh {
+    height: 100vh;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1280px) {
+  .intro h1 {
+    font-size: 3.3125rem;
+  }
+
+  .intro h2 {
+    font-size: 1.25rem;
+  }
+
+  .intro h3 {
+    font-size: 1.875rem;
+  }
+
+  .full-vh {
+    height: 100vh;
   }
 }
