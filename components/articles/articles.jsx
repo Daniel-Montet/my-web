@@ -23,7 +23,7 @@ export default function Excerpt({ posts, tags }) {
         </section>
         <section className="_link">
           <Link href="/posts">
-            <a>View More</a>
+            <a>View All</a>
           </Link>
         </section>
       </section>
@@ -39,7 +39,6 @@ export default function Excerpt({ posts, tags }) {
     </section>
   );
 }
-
 
 const FallbackPage = (message) => (
   <div>

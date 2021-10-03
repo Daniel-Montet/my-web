@@ -116,7 +116,7 @@ blockquote:before {
   position: absolute;
   height: 85%;
   width: 120%;
-  right: -2rem;
+  right: -3rem;
 }
 
 /* ----------------------------------
@@ -349,4 +349,82 @@ pre {
   text-decoration: none;
   color: #ffffff;
   padding-left: 1rem;
+}
+
+/* -------------------------------
+---> MEDIA QUERIES
+---------------------------------- */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .layout-col-1 {
+    display: none;
+  }
+
+  .layout-col-2 {
+    grid-column: 1 / span 24;
+  }
+
+  .intro .col-1 {
+    grid-column: 2 / span 24;
+  }
+
+  .intro .col-2 {
+    display: none;
+  }
+
+  .full-vh {
+    height: auto;
+  }
+
+  .profile .col-1 {
+    grid-column: 2 / 24;
+    padding-bottom: 3rem;
+  }
+
+  .profile .col-2 {
+    display: none;
+  }
+
+  .excerpt-grid {
+    grid-template-rows: auto auto;
+  }
+
+  .excerpt-grid .col-1 {
+    grid-row: 1;
+    grid-column: 2 / 24;
+    padding-bottom: 3rem;
+  }
+
+  .excerpt-grid .col-2 {
+    grid-row: 2;
+    grid-column: 2 / 24;
+    padding-bottom: 3rem;
+  }
+
+  .post-outer {
+    padding-bottom: 5rem;
+  }
+
+  .post-header {
+    grid-column: 2 / 24;
+  }
+
+  .post-content p,
+  .post-content h1,
+  .post-content h2,
+  .post-content h3,
+  .post-content h4,
+  .post-content h5,
+  .post-content ul,
+  .post-content ol,
+  .post-content pre,
+  .post-content .kg-bookmark-card,
+  .post-content .kg-gallery-card,
+  .post-content blockquote {
+    grid-column: 2 / 24;
+  }
+
+  .post-content .kg-image-card {
+    grid-column: 2 / 24;
+  }
 }
