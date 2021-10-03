@@ -10,8 +10,8 @@ export default function Home({ postsMeta, posts, tags, tagsMeta }) {
   return (
     <Grid stacked fullHeight>
       <Intro />
-      {/* <Me />
-      <Excerpt
+      <Me />
+      {/* <Excerpt
         posts={posts}
         postsMeta={postsMeta}
         tags={tags}
