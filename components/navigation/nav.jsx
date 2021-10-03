@@ -12,19 +12,35 @@ export function Nav() {
   return (
     <nav className={`${styles.nav} ${styles.chillBorder}`}>
       <span className={styles.logo}>
-        <Image height={25} className={styles.svg} src={Logo} />
+        <Link href="#intro">
+          <a>
+            <Image height={25} className={styles.svg} src={Logo} />
+          </a>
+        </Link>
       </span>
       <div className={`${styles.hr} ${styles.logoHr}`} />
       <span>
-        <Image height={25} className={styles.svg} src={Home} />
+        <Link href="#intro">
+          <a>
+            <Image height={25} className={styles.svg} src={Home} />
+          </a>
+        </Link>
       </span>
       <div className={styles.hr} />
       <span>
-        <Image height={25} className={styles.svg} src={Me} />
+        <Link href="#profile">
+          <a>
+            <Image height={25} className={styles.svg} src={Me} />
+          </a>
+        </Link>
       </span>
       <div className={styles.hr} />
       <span>
-        <Image height={25} className={styles.svg} src={Article} />
+        <Link href="#articles">
+          <a>
+            <Image height={25} className={styles.svg} src={Article} />
+          </a>
+        </Link>
       </span>
       <div className={styles.hr} />
       {/* <span>

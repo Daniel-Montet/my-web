@@ -3,7 +3,7 @@ import Tree from "/public/tree.svg";
 
 export default function Profile(props) {
   return (
-    <section className="inner-section profile">
+    <section className="inner-section profile" id="profile">
       <section className="col-1">
         <div>
           <h2 className="large-page-title">A little bit about myself.</h2>

@@ -12,7 +12,7 @@ export default function Excerpt({ posts, tags }) {
   }
 
   return (
-    <section className="inner-section excerpt-grid">
+    <section className="inner-section excerpt-grid" id="articles">
       <section className="col-1">
         <section className="small-page-title">
           <h4>ARTICLES</h4>
