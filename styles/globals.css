@@ -427,6 +427,10 @@ pre {
   .intro h1 {
     font-size: 3.3125rem;
   }
+
+  .full-vh {
+    height: auto;
+  }
 }
 
 @media only screen and (min-width: 680px) {
