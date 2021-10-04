@@ -11,12 +11,12 @@ export default function Home({ postsMeta, posts, tags, tagsMeta }) {
     <Grid stacked fullHeight>
       <Intro />
       <Me />
-      <Excerpt
+      {/* <Excerpt
         posts={posts}
         postsMeta={postsMeta}
         tags={tags}
         tagsMeta={tagsMeta}
-      />
+      /> */}
     </Grid>
   );
 }

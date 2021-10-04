@@ -449,12 +449,19 @@ pre {
   .intro h3 {
     font-size: 1.2rem;
   }
+  
+  .intro .col-2 {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
 
   .intro .col-2 img {
-    height: 100%;
-    top: -1rem;
-    width: auto;
-    right: -10rem;
+    max-height: 500px;
+  }
+
+  .full-vh {
+    height: auto;
   }
 }
 
@@ -475,14 +482,15 @@ pre {
   .full-vh {
     height: auto;
   }
+
+  .intro .col-2 img {
+    max-height: 585px;
+  }
 }
 
 @media only screen and (min-width: 900px) {
   .intro .col-2 img {
-    height: 115%;
-    top: -4rem;
-    width: auto;
-    right: -10rem;
+    max-height: 660px;
   }
 
   .intro h1 {
@@ -496,10 +504,8 @@ pre {
 
 @media only screen and (min-width: 1100px) {
   .intro .col-2 img {
-    height: 115%;
-    top: -4rem;
-    width: auto;
-    right: -3rem;
+    width: 115%;
+    max-height: 730px;
   }
 
   .intro h1 {
@@ -513,7 +519,7 @@ pre {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1280px) {
   .intro h1 {
-    font-size: 3.3125rem;
+    font-size: 3.3rem;
   }
 
   .intro h4 {
@@ -526,5 +532,20 @@ pre {
 
   .full-vh {
     height: 100vh;
+  }
+
+  .intro .col-2 img {
+    max-height: 1000px;
+  }
+}
+
+
+@media only screen and (min-width: 2000px) {
+  .intro h1 {
+    font-size: 3.3125rem;
+  }
+
+  .intro .col-2 img {
+      max-height: 1500px;
   }
 }
