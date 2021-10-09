@@ -1,5 +1,5 @@
 import React, { Children } from "react";
-import { Nav, OtherNav } from "../navigation/nav";
+import { HambugerNav, Nav, OtherNav } from "../navigation/nav";
 
 export function Grid({ fullHeight, stacked, children }) {
   let Navigation;
@@ -24,7 +24,10 @@ export function Grid({ fullHeight, stacked, children }) {
       <section className="layout-col-1">
         <Navigation />
       </section>
-      <section className="layout-col-2">{content}</section>
+      <section className="layout-col-2">
+        {content}
+        <HambugerNav />
+      </section>
     </section>
   );
 }

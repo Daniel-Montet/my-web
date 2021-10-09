@@ -68,3 +68,17 @@ export function OtherNav() {
     </div>
   );
 }
+
+
+export function HambugerNav() {
+  return (
+    <svg id="hambuger-nav" width="110" height="79" viewBox="0 0 110 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g>
+      <rect id="Rectangle 136" width="110" height="79" rx="39.5" fill="#FE9D9D"/>
+      <rect id="Rectangle 133" x="27" y="19" width="55" height="6" rx="3" fill="white"/>
+      <rect id="Rectangle 134" x="27" y="38" width="55" height="6" rx="3" fill="white"/>
+      <rect id="Rectangle 135" x="27" y="57" width="55" height="6" rx="3" fill="white"/>
+      </g>
+  </svg>
+  )
+}
