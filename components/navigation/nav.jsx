@@ -1,20 +1,27 @@
 import Image from "next/image";
 import styles from "./nav.module.css";
-import Logo from "/public/logo.svg";
-import Home from "/public/home.svg";
-import Me from "/public/me.svg";
-import Article from "/public/article.svg";
-import Envelope from "/public/envelope.svg";
+import Article from "../svg/article";
 import Arrow from "/public/left-arrow.svg";
 import Link from "next/link";
+import Person from "../svg/person";
+import House from "../svg/house";
+import Logo from "../svg/logo";
 
 export function Nav() {
+  let hex = "#C2CED7";
+  let active = "red";
+
+  const setHex = () => hex;
+  const handleColorSwap = (e) => {
+    return hex;
+  };
+
   return (
     <nav className={`${styles.nav} ${styles.chillBorder}`}>
       <span className={styles.logo}>
         <Link href="#intro">
           <a>
-            <Image height={25} className={styles.svg} src={Logo} />
+            <Logo className={styles.svg} />
           </a>
         </Link>
       </span>
@@ -22,7 +29,7 @@ export function Nav() {
       <span>
         <Link href="#intro">
           <a>
-            <Image height={25} className={styles.svg} src={Home} />
+            <House className={styles.svg} hex={hex} />
           </a>
         </Link>
       </span>
@@ -30,7 +37,7 @@ export function Nav() {
       <span>
         <Link href="#profile">
           <a>
-            <Image height={25} className={styles.svg} src={Me} />
+            <Person className={styles.svg} hex={hex} />
           </a>
         </Link>
       </span>
@@ -38,7 +45,7 @@ export function Nav() {
       <span>
         <Link href="#articles">
           <a>
-            <Image height={25} className={styles.svg} src={Article} />
+            <Article className={styles.svg} hex={hex} />
           </a>
         </Link>
       </span>
