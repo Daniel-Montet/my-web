@@ -1,4 +1,8 @@
-export default function Article({ hex }) {
+import { useState } from "react";
+
+export default function Article({ getHex }) {
+  let [hex, setHex] = useState(getHex({isFocused:false}))
+
   return (
     <svg
       width="32"
@@ -6,6 +10,8 @@ export default function Article({ hex }) {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onMouseEnter = {() => setHex(getHex({isFocused: true}))}
+      onMouseLeave = {() => setHex("white")}
     >
       <g id="article" clip-path="url(#clip0)">
         <path

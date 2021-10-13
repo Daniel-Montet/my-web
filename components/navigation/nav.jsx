@@ -8,12 +8,15 @@ import House from "../svg/house";
 import Logo from "../svg/logo";
 
 export function Nav() {
-  let hex = "#C2CED7";
-  let active = "red";
+  let defaultHex = "#C2CED7";
+  let activeHex = "#FE9D9D";
 
-  const setHex = () => hex;
-  const handleColorSwap = (e) => {
-    return hex;
+  const handleGetHex = ({isFocused}) => {
+    if (isFocused) {
+      return activeHex;
+    }
+
+    return defaultHex;
   };
 
   return (
@@ -21,7 +24,7 @@ export function Nav() {
       <span className={styles.logo}>
         <Link href="#intro">
           <a>
-            <Logo className={styles.svg} />
+            <Logo className={styles.svg} getHex={handleGetHex}/>
           </a>
         </Link>
       </span>
@@ -29,7 +32,7 @@ export function Nav() {
       <span>
         <Link href="#intro">
           <a>
-            <House className={styles.svg} hex={hex} />
+            <House className={styles.svg} hex={defaultHex} getHex={handleGetHex}/>
           </a>
         </Link>
       </span>
@@ -37,7 +40,7 @@ export function Nav() {
       <span>
         <Link href="#profile">
           <a>
-            <Person className={styles.svg} hex={hex} />
+            <Person className={styles.svg} hex={defaultHex} getHex={handleGetHex}/>
           </a>
         </Link>
       </span>
@@ -45,7 +48,7 @@ export function Nav() {
       <span>
         <Link href="#articles">
           <a>
-            <Article className={styles.svg} hex={hex} />
+            <Article className={styles.svg} hex={defaultHex} getHex={handleGetHex}/>
           </a>
         </Link>
       </span>

@@ -1,4 +1,7 @@
-export default function House({ hex }) {
+import { useState } from "react";
+
+export default function House({ getHex }) {
+  let [hex, setHex] = useState(getHex({isFocused:false}))
   return (
     <svg
       width="32"
@@ -6,6 +9,8 @@ export default function House({ hex }) {
       viewBox="0 0 32 33"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onMouseEnter = {() => setHex(getHex({isFocused: true}))}
+      onMouseLeave = {() => setHex("white")}
     >
       <path
         id="home"
