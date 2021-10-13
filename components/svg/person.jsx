@@ -13,7 +13,7 @@ export default function Person({ getHex }) {
       onMouseEnter = {() => setHex(getHex({isFocused: true}))}
       onMouseLeave = {() => setHex("white")}
     >
-      <g id="me" clip-path="url(#clip0)">
+      <g id="me" clipPath="url(#clip0)">
         <g id="Group">
           <path
             id="Vector"

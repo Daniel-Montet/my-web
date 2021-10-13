@@ -13,24 +13,24 @@ export default function Article({ getHex }) {
       onMouseEnter = {() => setHex(getHex({isFocused: true}))}
       onMouseLeave = {() => setHex("white")}
     >
-      <g id="article" clip-path="url(#clip0)">
+      <g id="article" clipPath="url(#clip0)">
         <path
           id="Vector"
           d="M28.136 7.84104L24.1587 3.86374L16.7527 11.3318L20.7307 15.3095L28.136 7.84104Z"
           fill={hex}
-          fill-opacity="0.74"
+          fillOpacity="0.74"
         />
         <path
           id="Vector_2"
           d="M13.1892 17.6448C12.8672 18.418 13.6436 19.1934 14.4163 18.8704L19.1773 16.4075L15.6499 12.8802L13.1892 17.6448Z"
           fill={hex}
-          fill-opacity="0.74"
+          fillOpacity="0.74"
         />
         <path
           id="Vector_3"
           d="M31.7253 4.25171C32.0916 3.88549 32.0916 3.29199 31.7253 2.92578L29.074 0.274654C28.7078 -0.0915566 28.1143 -0.0915566 27.748 0.274654L25.4846 2.53808L29.4617 6.51538L31.7253 4.25171Z"
           fill={hex}
-          fill-opacity="0.74"
+          fillOpacity="0.74"
         />
         <path
           id="Vector_4"
