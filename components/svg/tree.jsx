@@ -7,7 +7,7 @@ export default function Tree() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="tree" clip-path="url(#clip0_215:217)">
+      <g id="tree" clipPath="url(#clip0_215:217)">
         <path
           id="Vector"
           d="M367.9 704.989C469.137 704.989 551.207 701.592 551.207 697.403C551.207 693.214 469.137 689.818 367.9 689.818C266.662 689.818 184.593 693.214 184.593 697.403C184.593 701.592 266.662 704.989 367.9 704.989Z"
