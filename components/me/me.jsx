@@ -1,5 +1,5 @@
+import Tree from "../svg/tree";
 import styles from "./me.module.css";
-import Tree from "/public/tree.svg";
 
 export default function Profile(props) {
   return (
@@ -28,7 +28,7 @@ export default function Profile(props) {
         </div>
       </section>
       <section className="col-2">
-        <img src={Tree.src} className={styles.img} />
+        <Tree />
       </section>
     </section>
   );

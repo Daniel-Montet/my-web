@@ -1,5 +1,5 @@
+import HeroImage from "../svg/heroImage";
 import styles from "./intro.module.css";
-import HeroImage from "/public/hero-image.svg";
 
 export default function Intro() {
   return (
@@ -10,7 +10,7 @@ export default function Intro() {
         <h3 className={styles.h3}>A fullstack developer.</h3>
       </section>
       <section className="col-2">
-        <img src={HeroImage.src} alt="hero image" />
+        <HeroImage />
       </section>
     </section>
   );
