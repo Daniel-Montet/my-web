@@ -1,9 +1,10 @@
-import React, { Children } from "react";
+import React, { Children, useState } from "react";
 import { HambugerNav, Nav, OtherNav } from "../navigation/nav";
 
 export function Grid({ fullHeight, stacked, children }) {
   let Navigation;
   let content;
+  let [mobileViewNavState, changeMobileViewNavState] = useState(false);
 
   if (stacked) {
     Navigation = Nav;
@@ -22,11 +23,11 @@ export function Grid({ fullHeight, stacked, children }) {
   return (
     <section className="layout-grid">
       <section className="layout-col-1">
-        <Navigation />
+        <Navigation mobileNavState={mobileViewNavState} />
       </section>
       <section className="layout-col-2">
         {content}
-        <HambugerNav />
+        <HambugerNav handleClick={changeMobileViewNavState} />
       </section>
     </section>
   );

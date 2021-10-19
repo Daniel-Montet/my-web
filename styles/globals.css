@@ -353,6 +353,11 @@ pre {
   padding-left: 1rem;
 }
 
+.default-nav-active {
+  display: block !important;
+  background-color: green;
+}
+
 /* -------------------------------
 ---> MEDIA QUERIES
 ---------------------------------- */
@@ -362,7 +367,10 @@ pre {
   }
 }
 @media only screen and (max-width: 680px) {
-  .layout-col-1 {
+  /* .layout-col-1 {
+    display: none;
+  } */
+  .default-nav {
     display: none;
   }
 

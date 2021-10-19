@@ -7,10 +7,12 @@ import House from "../svg/house";
 import Logo from "../svg/logo";
 import LeftArrow from "../svg/leftArrow";
 
-export function Nav() {
+export function Nav({ mobileNavState }) {
   let defaultHex = "#C2CED7";
   let activeHex = "#FE9D9D";
+  let mobileViewStateClass;
 
+  // handles change of svg icon colors for hover events
   const handleGetHex = ({ isFocused }) => {
     if (isFocused) {
       return activeHex;
@@ -19,8 +21,17 @@ export function Nav() {
     return defaultHex;
   };
 
+  // if the hambugerNav is clicked on display this component
+  if (mobileNavState) {
+    mobileViewStateClass = "default-nav-active";
+  } else {
+    mobileViewStateClass = "";
+  }
+
   return (
-    <nav className={`${styles.nav} ${styles.chillBorder}`}>
+    <nav
+      className={`default-nav ${styles.nav} ${styles.chillBorder} ${mobileViewStateClass}`}
+    >
       <span className={styles.logo}>
         <Link href="#intro">
           <a>
@@ -91,7 +102,7 @@ export function OtherNav() {
   );
 }
 
-export function HambugerNav() {
+export function HambugerNav({ handleClick }) {
   return (
     <svg
       id="hambuger-nav"
@@ -100,6 +111,7 @@ export function HambugerNav() {
       viewBox="0 0 110 79"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onClick={(e) => handleClick(true)}
     >
       <g>
         <rect
