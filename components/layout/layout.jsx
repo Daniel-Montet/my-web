@@ -1,10 +1,10 @@
 import React, { Children, useState } from "react";
-import { HambugerNav, Nav, OtherNav } from "../navigation/nav";
+import { HambugerNav, Nav, OtherNav, OverlayNav } from "../navigation/nav";
 
 export function Grid({ fullHeight, stacked, children }) {
   let Navigation;
   let content;
-  let [mobileViewNavState, changeMobileViewNavState] = useState(false);
+  let [isActive, activateOverlayNav] = useState(false);
 
   if (stacked) {
     Navigation = Nav;
@@ -23,11 +23,12 @@ export function Grid({ fullHeight, stacked, children }) {
   return (
     <section className="layout-grid">
       <section className="layout-col-1">
-        <Navigation mobileNavState={mobileViewNavState} />
+        <Navigation />
       </section>
       <section className="layout-col-2">
         {content}
-        <HambugerNav handleClick={changeMobileViewNavState} />
+        <OverlayNav isActivate={isActive} handleClick={activateOverlayNav} />
+        <HambugerNav handleClick={activateOverlayNav} />
       </section>
     </section>
   );

@@ -6,11 +6,12 @@ import Person from "../svg/person";
 import House from "../svg/house";
 import Logo from "../svg/logo";
 import LeftArrow from "../svg/leftArrow";
+import { getParseTreeNode } from "typescript";
 
-export function Nav({ mobileNavState }) {
+export function Nav() {
   let defaultHex = "#C2CED7";
   let activeHex = "#FE9D9D";
-  let mobileViewStateClass;
+  // let mobileViewStateClass;
 
   // handles change of svg icon colors for hover events
   const handleGetHex = ({ isFocused }) => {
@@ -22,16 +23,14 @@ export function Nav({ mobileNavState }) {
   };
 
   // if the hambugerNav is clicked on display this component
-  if (mobileNavState) {
-    mobileViewStateClass = "default-nav-active";
-  } else {
-    mobileViewStateClass = "";
-  }
+  // if (mobileNavState) {
+  //   mobileViewStateClass = "default-nav-active";
+  // } else {
+  //   mobileViewStateClass = "";
+  // }
 
   return (
-    <nav
-      className={`default-nav ${styles.nav} ${styles.chillBorder} ${mobileViewStateClass}`}
-    >
+    <nav className={`${styles.nav} ${styles.chillBorder}`}>
       <span className={styles.logo}>
         <Link href="#intro">
           <a>
@@ -151,4 +150,26 @@ export function HambugerNav({ handleClick }) {
       </g>
     </svg>
   );
+}
+
+export function OverlayNav({ isActivate, handleClick }) {
+  if (isActivate) {
+    return (
+      <section
+        style={{
+          backgroundColor: "green",
+          position: "fixed",
+          zIndex: 1000,
+          top: 0,
+          height: "100%",
+          width: "100%",
+          color: "white",
+        }}
+      >
+        <button onClick={(e) => handleClick(false)}>Close</button>
+      </section>
+    );
+  }
+
+  return <section></section>;
 }
