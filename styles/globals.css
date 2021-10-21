@@ -1,13 +1,22 @@
 /* --------------------
 -->  TYPOGRAPHY
 ------------------ */
+:root {
+  --main-background-color: #082032;
+  --secondary-background-color: #0e1013;
+  --primary-color: white;
+  --primary-accent-color: #fe9d9d;
+  --secondary-accent-color: #ffb8b8;
+  --default-accent-color: #c2ced7;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  color: white;
-  background: #082032;
+  color: var(--primary-color);
+  background: var(--main-background-color);
   overflow-x: hidden;
 }
 
@@ -16,13 +25,13 @@ body {
 }
 
 a {
-  color: white;
+  color: var(--primary-color);
   text-decoration: underline;
   font-weight: 500;
 }
 
 a:hover {
-  color: #fe9d9d;
+  color: var(--primary-accent-color);
 }
 
 h1 {
@@ -61,12 +70,12 @@ blockquote:before {
   top: 0;
   bottom: 0;
   width: 0.3rem;
-  background: #fe9d9d;
+  background: var(--primary-accent-color);
 }
 
 .hr {
   height: 0.05rem;
-  background-color: white;
+  background-color: var(--primary-color);
   opacity: 0.6;
 }
 
@@ -204,11 +213,11 @@ blockquote:before {
 }
 
 .time {
-  color: #ffb8b8;
+  color: var(--primary-accent-color);
 }
 
 .dot {
-  background: #c2ced7;
+  background: var(--default-accent-color);
   width: 0.3rem;
   height: 0.3rem;
   border-radius: 50%;
@@ -256,7 +265,7 @@ blockquote:before {
  ---> CODE BLOCK
 ---------------------------- */
 pre {
-  background: #0e1013;
+  background: var(--secondary-background-color);
   padding: 2rem;
   font-size: 1rem;
   border-radius: 5px;
@@ -349,14 +358,34 @@ pre {
 
 .nav-link {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--primary-color);
   padding-left: 1rem;
 }
 
-/* .default-nav-active {
-  display: block !important;
-  background-color: green;
-} */
+.overlay-nav {
+  background-color: var(--main-background-color);
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  color: var(--primary-color);
+}
+
+.overlay-nav-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 2rem;
+}
+
+.overlay-nav .close {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 
 /* -------------------------------
 ---> MEDIA QUERIES
