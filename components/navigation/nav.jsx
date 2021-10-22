@@ -6,6 +6,7 @@ import Person from "../svg/person";
 import House from "../svg/house";
 import Logo from "../svg/logo";
 import LeftArrow from "../svg/leftArrow";
+import { useRouter } from "next/dist/client/router";
 
 export function Nav() {
   let defaultHex = "#C2CED7";
@@ -144,18 +145,28 @@ export function HambugerNav({ handleClick }) {
 }
 
 export function OverlayNav({ isActivate, handleClick }) {
+  let PostsLink;
+  let router = useRouter();
+  console.log(router.pathname);
+  if (router.pathname === "/posts" || router.pathname === "/posts/[slug]") {
+    console.log("hello");
+    PostsLink = "/posts";
+  } else {
+    PostsLink = "/#posts";
+  }
+
   if (isActivate) {
     return (
       <section className="overlay-nav">
         <section className="overlay-nav-body">
-          <Link href="#intro">
+          <Link href="/#intro">
             <a onClick={(e) => handleClick(false)}>Home</a>
           </Link>
-          <Link href="#profile">
+          <Link href="/#profile">
             <a onClick={(e) => handleClick(false)}>About Me</a>
           </Link>
-          <Link href="#articles">
-            <a onClick={(e) => handleClick(false)}>Articles</a>
+          <Link href={PostsLink}>
+            <a onClick={(e) => handleClick(false)}>Posts</a>
           </Link>
         </section>
         <span className="close" onClick={(e) => handleClick(false)}>

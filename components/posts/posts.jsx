@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Tags } from "./tags";
 import { PostMeta } from "./postsMeta";
 
-export default function Excerpt({ posts, tags }) {
+export default function Posts({ posts, tags }) {
   if (posts === null) {
     return (
       <div className="container">
@@ -12,10 +12,10 @@ export default function Excerpt({ posts, tags }) {
   }
 
   return (
-    <section className="inner-section excerpt-grid" id="articles">
+    <section className="inner-section excerpt-grid" id="posts">
       <section className="col-1">
         <section className="small-page-title">
-          <h4>ARTICLES</h4>
+          <h4>POSTS</h4>
           <div className="hr" />
         </section>
         <section className="excerpt-list">
