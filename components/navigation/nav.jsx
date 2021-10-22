@@ -168,10 +168,10 @@ export function OverlayNav({ isActivate, handleClick }) {
           <Link href={PostsLink}>
             <a onClick={(e) => handleClick(false)}>Posts</a>
           </Link>
+          <span className="close" onClick={(e) => handleClick(false)}>
+            Close
+          </span>
         </section>
-        <span className="close" onClick={(e) => handleClick(false)}>
-          Close
-        </span>
       </section>
     );
   }

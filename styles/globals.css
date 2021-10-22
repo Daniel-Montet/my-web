@@ -383,8 +383,10 @@ pre {
 
 .overlay-nav .close {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 1rem;
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
 }
 
 /* -------------------------------
