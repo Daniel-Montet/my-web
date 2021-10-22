@@ -1,8 +1,7 @@
 import { getPosts, getTags } from "../../lib/ghostUtils";
 import { useRouter } from "next/router";
-import Excerpt from "../../components/articles/articles";
+import Posts from "../../components/posts/posts";
 import { Grid } from "../../components/layout/layout";
-
 
 export async function getStaticProps({ params }) {
   const {
@@ -27,7 +26,6 @@ export async function getStaticPaths({ params }) {
   return { paths: [], fallback: true };
 }
 
-
 export default function BlogPageLayout({ posts, tags }) {
   const router = useRouter();
 
@@ -37,9 +35,9 @@ export default function BlogPageLayout({ posts, tags }) {
     return <div>Loading...</div>;
   }
 
-  return(
+  return (
     <Grid>
-      <Excerpt posts={posts} tags={tags}/>
+      <Posts posts={posts} tags={tags} />
     </Grid>
-  )
+  );
 }
