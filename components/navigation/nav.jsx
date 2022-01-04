@@ -56,7 +56,7 @@ export function Nav() {
       </span>
       <div className={styles.hr} />
       <span>
-        <Link href="#articles">
+        <Link href="#posts">
           <a>
             <Article
               className={styles.svg}
