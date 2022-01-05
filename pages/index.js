@@ -3,12 +3,19 @@ import Me from "../components/me/me";
 import { Grid } from "../components/layout/layout";
 import Posts from "../components/posts/posts";
 import { getPage, getPosts, getTags } from "../lib/ghostUtils";
+import { useState } from "react";
 
 export default function Home({ about, postsMeta, posts, tags, tagsMeta }) {
+  let [navState, setState] = useState({
+    home: false,
+    profile: false,
+    posts: false,
+  });
+
   return (
-    <Grid stacked fullHeight>
+    <Grid stacked fullHeight navState={navState}>
       <Intro />
-      <Me about={about} />
+      <Me about={about} handleNavState={setState} navState={navState} />
       <Posts
         posts={posts}
         postsMeta={postsMeta}

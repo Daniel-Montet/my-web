@@ -1,15 +1,15 @@
 import React, { Children, useState } from "react";
 import { HambugerNav, Nav, OtherNav, OverlayNav } from "../navigation/nav";
 
-export function Grid({ fullHeight, stacked, children }) {
+export function Grid({ fullHeight, stacked, children, navState }) {
   let Navigation;
   let content;
   let [isActive, activateOverlayNav] = useState(false);
 
   if (stacked) {
-    Navigation = Nav;
+    Navigation = <Nav />;
   } else {
-    Navigation = OtherNav;
+    Navigation = <OtherNav />;
   }
 
   if (fullHeight) {
@@ -22,9 +22,7 @@ export function Grid({ fullHeight, stacked, children }) {
 
   return (
     <section className="layout-grid">
-      <section className="layout-col-1">
-        <Navigation />
-      </section>
+      <section className="layout-col-1">{Navigation}</section>
       <section className="layout-col-2">
         {content}
         <OverlayNav isActivate={isActive} handleClick={activateOverlayNav} />
