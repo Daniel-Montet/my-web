@@ -2,15 +2,13 @@ import Intro from "../components/intro/intro";
 import Me from "../components/me/me";
 import { Grid } from "../components/layout/layout";
 import Posts from "../components/posts/posts";
+import { getPage, getPosts, getTags } from "../lib/ghostUtils";
 
-let BLOG_URL = process.env.BLOG_URL;
-let CONTENT_API_KEY = process.env.CONTENT_API_KEY;
-
-export default function Home({ postsMeta, posts, tags, tagsMeta }) {
+export default function Home({ about, postsMeta, posts, tags, tagsMeta }) {
   return (
     <Grid stacked fullHeight>
       <Intro />
-      <Me />
+      <Me about={about} />
       <Posts
         posts={posts}
         postsMeta={postsMeta}
@@ -24,43 +22,21 @@ export default function Home({ postsMeta, posts, tags, tagsMeta }) {
 export async function getStaticProps(context) {
   const { posts, meta: postsMeta, error: postsError } = await getPosts();
   const { tags, meta: tagsMeta, error: tagsError } = await getTags();
+  const { pages } = await getPage("about-me");
 
   if (postsError || tagsError) {
     return {
-      props: { posts: null, postsMeta: null, tags: null, tagsMeta: null },
+      props: {
+        posts: null,
+        postsMeta: null,
+        tags: null,
+        tagsMeta: null,
+        about: null,
+      },
     };
   }
 
   return {
-    props: { posts, postsMeta, tags, tagsMeta },
+    props: { posts, postsMeta, tags, tagsMeta, about: pages[0] },
   };
 }
-
-//object returned from endpoint ---> { meta:{},posts:[] }
-const getPosts = async () => {
-  let res = await fetch(
-    `${BLOG_URL}/ghost/api/v3/content/posts?key=${CONTENT_API_KEY}&limit=3`
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .catch((error) => {
-      return { error };
-    });
-
-  return res;
-};
-
-const getTags = async () => {
-  let res = await fetch(
-    `${BLOG_URL}/ghost/api/v3/content/tags?key=${CONTENT_API_KEY}`
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .catch((error) => {
-      return { error };
-    });
-
-  return res;
-};
