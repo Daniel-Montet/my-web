@@ -5,14 +5,6 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
 export default function Posts({ posts, tags, handleFocus }) {
-  if (posts === null) {
-    return (
-      <div className="container">
-        <FallbackPage />
-      </div>
-    );
-  }
-
   const { ref, inView, entry } = useInView();
 
   useEffect(() => {
@@ -50,9 +42,3 @@ export default function Posts({ posts, tags, handleFocus }) {
     </section>
   );
 }
-
-const FallbackPage = (message) => (
-  <div>
-    <h2>{message}</h2>
-  </div>
-);
