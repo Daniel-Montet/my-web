@@ -6,21 +6,18 @@ import { getPage, getPosts, getTags } from "../lib/ghostUtils";
 import { useState } from "react";
 
 export default function Home({ about, postsMeta, posts, tags, tagsMeta }) {
-  let [navState, setState] = useState({
-    home: false,
-    profile: false,
-    posts: false,
-  });
+  let [navFocus, setFocus] = useState("intro");
 
   return (
-    <Grid stacked fullHeight navState={navState}>
-      <Intro />
-      <Me about={about} handleNavState={setState} navState={navState} />
+    <Grid stacked fullHeight navFocus={navFocus}>
+      <Intro handleFocus={setFocus} />
+      <Me about={about} handleFocus={setFocus} />
       <Posts
         posts={posts}
         postsMeta={postsMeta}
         tags={tags}
         tagsMeta={tagsMeta}
+        handleFocus={setFocus}
       />
     </Grid>
   );

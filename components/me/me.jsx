@@ -3,13 +3,12 @@ import styles from "./me.module.css";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
-export default function Profile({ about, handleNavState, navState }) {
+export default function Profile({ about, handleFocus }) {
   const { ref, inView, entry } = useInView();
 
   useEffect(() => {
     if (inView) {
-      let { profile, home, posts } = navViewState;
-      handleNavState({ profile: true, home: false, posts: false });
+      handleFocus("profile");
     }
     return;
   }, [inView]);

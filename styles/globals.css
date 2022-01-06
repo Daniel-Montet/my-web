@@ -253,7 +253,8 @@ blockquote:before {
 .post-content pre,
 .post-content .kg-bookmark-card,
 .post-content .kg-gallery-card,
-.post-content blockquote {
+.post-content blockquote,
+.post-content .kg-code-card {
   grid-column: 4 / 20;
 }
 

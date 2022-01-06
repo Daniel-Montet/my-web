@@ -1,13 +1,13 @@
 import React, { Children, useState } from "react";
 import { HambugerNav, Nav, OtherNav, OverlayNav } from "../navigation/nav";
 
-export function Grid({ fullHeight, stacked, children, navState }) {
+export function Grid({ fullHeight, stacked, children, navFocus }) {
   let Navigation;
   let content;
   let [isActive, activateOverlayNav] = useState(false);
 
   if (stacked) {
-    Navigation = <Nav />;
+    Navigation = <Nav navFocus={navFocus} />;
   } else {
     Navigation = <OtherNav />;
   }

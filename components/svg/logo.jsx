@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-export default function Logo({ getHex }) {
-  let [hex, setHex] = useState(getHex({isFocused:false}))
-
+export default function Logo({ defaultHex }) {
+  let [hex, setHex] = useState(defaultHex);
   return (
     <svg
       width="36"
@@ -10,8 +9,8 @@ export default function Logo({ getHex }) {
       viewBox="0 0 36 35"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      onMouseEnter = {() => setHex(getHex({isFocused: true}))}
-      onMouseLeave = {() => setHex("white")}
+      // onMouseEnter={() => setHex(getHex())}
+      // onMouseLeave={() => setHex("white")}
     >
       <path
         id="logo"

@@ -8,25 +8,25 @@ import Logo from "../svg/logo";
 import LeftArrow from "../svg/leftArrow";
 import { useRouter } from "next/dist/client/router";
 
-export function Nav() {
+export function Nav({ navFocus }) {
   let defaultHex = "#C2CED7";
   let activeHex = "#FE9D9D";
 
   // handles change of svg icon colors for hover events
-  const handleGetHex = ({ isFocused }) => {
-    if (isFocused) {
-      return activeHex;
-    }
-
-    return defaultHex;
-  };
+  // const handleGetHex = (element) => {
+  //   if (navFocus === element) {
+  //     return activeHex;
+  //   } else {
+  //     return defaultHex;
+  //   }
+  // };
 
   return (
     <nav className={`${styles.nav} ${styles.chillBorder}`}>
       <span className={styles.logo}>
         <Link href="#intro">
           <a>
-            <Logo className={styles.svg} getHex={handleGetHex} />
+            <Logo className={styles.svg} defaultHex={defaultHex} />
           </a>
         </Link>
       </span>
@@ -36,8 +36,9 @@ export function Nav() {
           <a>
             <House
               className={styles.svg}
-              hex={defaultHex}
-              getHex={handleGetHex}
+              navFocus={navFocus}
+              activeHex={activeHex}
+              defaultHex={defaultHex}
             />
           </a>
         </Link>
@@ -48,8 +49,9 @@ export function Nav() {
           <a>
             <Person
               className={styles.svg}
-              hex={defaultHex}
-              getHex={handleGetHex}
+              navFocus={navFocus}
+              activeHex={activeHex}
+              defaultHex={defaultHex}
             />
           </a>
         </Link>
@@ -60,8 +62,9 @@ export function Nav() {
           <a>
             <Article
               className={styles.svg}
-              hex={defaultHex}
-              getHex={handleGetHex}
+              navFocus={navFocus}
+              activeHex={activeHex}
+              defaultHex={defaultHex}
             />
           </a>
         </Link>
