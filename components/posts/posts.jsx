@@ -25,16 +25,16 @@ export default function Posts({ posts, tags, handleFocus }) {
         <section className="excerpt-list">
           <PostMeta posts={posts} />
         </section>
-        <section className="_link">
-          <Link href="/posts">
-            <a>View All</a>
-          </Link>
-        </section>
       </section>
       <section className="col-2">
         <section className="small-page-title">
           <h4>TAGS</h4>
           <div className="hr" />
+        </section>
+        <section>
+          <Link href="/posts">
+            <a>View All Posts</a>
+          </Link>
         </section>
         <section className="tag-list">
           <Tags tags={tags} />
