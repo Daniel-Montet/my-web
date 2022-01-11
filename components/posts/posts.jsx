@@ -6,10 +6,11 @@ import { useEffect } from "react";
 
 export default function Posts({ posts, tags, handleFocus }) {
   const { ref, inView, entry } = useInView();
+  console.log(posts);
 
   useEffect(() => {
     if (inView) {
-      handleFocus("posts");
+      typeof handleFocus === "function" ?? handleFocus("posts");
     }
     return;
   }, [inView]);
