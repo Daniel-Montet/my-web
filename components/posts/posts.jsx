@@ -31,7 +31,7 @@ export default function Posts({ posts, tags, handleFocus }) {
           <h4>TAGS</h4>
           <div className="hr" />
         </section>
-        <section>
+        <section style={{ marginBottom: "25px" }}>
           <Link href="/posts">
             <a>View All Posts</a>
           </Link>

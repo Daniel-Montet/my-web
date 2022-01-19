@@ -1,4 +1,4 @@
-import { getPosts, getTags } from "../../lib/ghostUtils";
+import { getPostsByFilter, getTags } from "../../lib/ghostUtils";
 import { useRouter } from "next/router";
 import Posts from "../../components/posts/posts";
 import { Grid } from "../../components/layout/layout";
@@ -8,7 +8,7 @@ export async function getStaticProps({ params }) {
     posts,
     meta: postsMeta,
     error: postsError,
-  } = await getPosts(params.slug);
+  } = await getPostsByFilter(`tag:${params.slug}`);
   const { tags, meta: tagsMeta, error: tagsError } = await getTags();
 
   if (postsError || tagsError) {

@@ -27,6 +27,7 @@ export async function getStaticProps(context) {
   const { posts, meta: postsMeta, error: postsError } = await getPosts(3);
   const { tags, meta: tagsMeta, error: tagsError } = await getTags();
   const { pages } = await getPage("about-me");
+  console.log(posts);
 
   if (postsError || tagsError) {
     return {
