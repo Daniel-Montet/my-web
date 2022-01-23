@@ -1,4 +1,4 @@
-My personal website, made with Next.js and a ghost backend.
+My personal website, made with Next.js and a Ghost CMS powered backend.
 
 ## Getting Started
 
