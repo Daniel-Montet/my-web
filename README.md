@@ -1,3 +1,5 @@
+My personal website, made with Next.js and a ghost backend.
+
 ## Getting Started
 
 First, clone repo and install dependancies,:
